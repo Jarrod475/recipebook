@@ -21,14 +21,25 @@ h1{
 }
 
 .svg{
-  width: 10rem;
+  width: 5rem;
 }
+.button-svg{
+  max-height: 2rem;
+  max-width: 2rem;
+}
+
+
 .header{
   display: flex ;
   position: sticky;
   top: 0;
+  max-height: 6rem;
   padding: 10px 16px;
   justify-content: left;
+  border-bottom: solid silver 5px ;
+  margin-bottom: 10px;
+  background-color: #4e5970;
+  z-index: 1;
 }
 
 /* Yoinked this straight from some button css site */
@@ -73,7 +84,7 @@ h1{
 }
 
 .btn:not([disabled]):active {
-  box-shadow: #676767 2px 2px 0 0, #000 2px 2px 0 1px;
+  box-shadow: silver 2px 2px 0 0, #000 2px 2px 0 1px;
   transform: translate(2px, 2px);
 }
 
@@ -82,3 +93,19 @@ h1{
     padding: 12px 50px;
   }
 }
+
+
+.recipelist{
+  width : 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.33fr 0.33fr 0.33fr;
+  grid-template-rows: auto; 
+  gap : 5px;
+}
+
+.recipecard{
+  border: solid black 2.5px ;
+align-items: center;
+}
+
