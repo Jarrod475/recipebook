@@ -4,10 +4,10 @@ import { GoogleLogin } from '@react-oauth/google';
 import chefSVG from "./SVG/Chef.svg";
 
 const LoginPage = () => {
-    //this send the token to the back end for verification.
+    //this sends the token to the back end for verification.
     async function postToken(idToken) {
-      await axios.post('http://localhost:5000/auth',{
-        token : idToken
+      await axios.post('http://localhost:5000/auth',null,{
+        headers: {token : idToken}
       }).then(response => {
         console.log('Response:', response.data);
       })
