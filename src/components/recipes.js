@@ -11,7 +11,7 @@ function List(){
     useEffect(() => {
         axios.get('http://localhost:5000/recipes').then(response => 
         {
-       setRecipeList(response.data.recipes);
+       //setRecipeList(response.data.recipes);
        console.log(response.data.recipes);
         })
         }, []);
