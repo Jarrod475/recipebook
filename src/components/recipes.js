@@ -4,26 +4,26 @@ import axios from 'axios';
 
 
 
-function List(){
-    const [recipeList, setRecipeList] = useState();
+function List(props){
+    const [recipeList, setRecipeList] = useState([]);
 
     //using the 'useEffect' hook to run this one the recipe component loads up
     useEffect(() => {
         axios.get('http://localhost:5000/recipes').then(response => 
         {
-       //setRecipeList(response.data.recipes);
+       setRecipeList(response.data.recipes);
        console.log(response.data.recipes);
         })
         }, []);
     
 
+
     return(
         <div className="recipelist">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {recipeList.length > 0 ? recipeList.map((recipe, index)=>
+            {
+                return <Card view={props.view} key={index} recipeData={recipe} />
+            }): <p>No recipes :/</p>}
         </div>
     )
 }
