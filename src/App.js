@@ -4,11 +4,12 @@ import Header from "./components/Header";
 import Recipes from './components/recipes';
 import LoginPage from './components/Loginpage';
 import Showcase from './components/showcase';
+import Create from './components/create';
 import React,{useState} from 'react';
 
 function App() {
 
-const [pageState,setPageState] = useState(0);
+const [pageState,setPageState] = useState(3);
 const [activeRecipe, setActiveRecipe] = useState();
 
 function viewRecipe(recipeData){
@@ -26,11 +27,13 @@ function renderPage(){
   }else if (pageState === 1){
     //recipe page
     return <Recipes view={viewRecipe}/> ;
-  }else if (pageState === 2)
-    {
+  }else if (pageState === 2){
       //recipe showcase
       return <Showcase recipeData={activeRecipe}/> 
-    }
+  }else if (pageState === 3){
+    //add page
+    return <Create />
+  }
 }
 
 

@@ -28,6 +28,11 @@ h1{
   max-width: 2rem;
 }
 
+.input-page input{
+  height: 1.5rem;
+  margin: 20px;
+  
+}
 
 .header{
   display: flex ;
