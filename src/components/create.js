@@ -69,7 +69,7 @@ function Create(props){
         });}
 
     return (<div className='input-page'>
-        <button onClick={()=>props.setPage(1)} className='return-btn'><img className='button-svg' src={arrow} /></button>
+        <button onClick={()=>props.setPage(1)} className='return-btn'><img className='button-svg' src={arrow} alt="back button"/></button>
         <h2>Create a new Recipe</h2>
         <p>name of the recipe</p>
         <input onChange={handlenameChange} value={recipeName}/>

@@ -17,13 +17,29 @@ function List(props){
         })
         }, []);
     
+    function deleteData(id){    
+        axios.delete('http://localhost:5000/delete',{data :{recipeID : id}})
+        .then( ()=>{
+            //this doesnt work! you arent looping through each ID, since each ID is stored in a different object.
+            var index = recipeList.indexOf(id);
+            console.log("index is : ",index);
+            if (index !== -1) {
+                setRecipeList((prevValue)=>{
+                    const newArray = [...prevValue];
+                    newArray.splice(index, 1);
+                    return newArray;
+                });
+            }
+        })
+    }
+    
 
 
     return(
         <div className="recipelist">
             {recipeList.length > 0 ? recipeList.map((recipe, index)=>
             {
-                return <Card view={props.view} key={index} recipeData={recipe} />
+                return <Card delete={deleteData} view={props.view} key={index} recipeData={recipe} />
             }): <p>No recipes :/</p>}
             <button onClick={()=>props.addRecipe(3)}><img className="button-svg" src={chefSVG} alt="add button" /></button>
         </div>
