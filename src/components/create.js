@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import edit from "./SVG/edit.svg"
 import IngredientCard from "./ingredient.js";
-import axios from 'axios';
+import axios, { all } from 'axios';
+import arrow from './SVG/LeftArrow.svg';
 
-function Create(){
+function Create(props){
    const [recipe, setRecipe] = useState({});
    const [recipeName,setName] = useState();
    const [ingredients, setIngredients] = useState([]);
@@ -14,9 +15,6 @@ function Create(){
     const newValue = event.target.value;
     setName(newValue); 
 };
-
-
-
     //functions for the ingredients
    function addIngredient(){
     setIngredients((prevValue)=>{
@@ -60,17 +58,18 @@ function Create(){
         setRecipe(newRecipe);
     },[recipeName,recipeInstruction,ingredients])
 
-
-    //CONTINUE FROM HERE
     async function submitRecipe() {
-        await axios.post('http://localhost:5000/add',null,{
-          headers: {recipe : recipe}
-        })
+        await axios.post('http://localhost:5000/add',recipe)
+        .then(function (response){
+            console.log(response);
+            alert("Recipe has been added");
+          })
         .catch(error => {
           console.error('Error:', error);
         });}
 
     return (<div className='input-page'>
+        <button onClick={()=>props.setPage(1)} className='return-btn'><img className='button-svg' src={arrow} /></button>
         <h2>Create a new Recipe</h2>
         <p>name of the recipe</p>
         <input onChange={handlenameChange} value={recipeName}/>
@@ -78,10 +77,10 @@ function Create(){
         <ol>
         {ingredients.map((ingredient,index)=>{return <IngredientCard key={index} Ingredient={ingredient} ingredientPos={index} deleteIngredient={deleteIngredients} setIngredient={setnewIngredients} />})}
         </ol>
-        <button onClick={addIngredient}><img className="button-svg" src={edit} /></button>
+        <button onClick={addIngredient}><img className="button-svg" src={edit} alt='add button' /></button>
         <p>Instructions</p>
         <input onChange={handleInstructionChange} value={recipeInstruction}/> <br/> 
-        <button >Submit!</button>
+        <button onClick={submitRecipe}>Submit!</button>
     </div>);
 
 }

@@ -9,13 +9,14 @@ import React,{useState} from 'react';
 
 function App() {
 
-const [pageState,setPageState] = useState(3);
+const [pageState,setPageState] = useState(0);
 const [activeRecipe, setActiveRecipe] = useState();
 
 function viewRecipe(recipeData){
   setActiveRecipe(recipeData);
   setPageState(2);
 }
+
 function loginSuccess(){
   setPageState(1);
 }
@@ -26,13 +27,13 @@ function renderPage(){
     return <LoginPage loginSuccess={loginSuccess}/>;
   }else if (pageState === 1){
     //recipe page
-    return <Recipes view={viewRecipe}/> ;
+    return <Recipes addRecipe={setPageState} view={viewRecipe}/> ;
   }else if (pageState === 2){
       //recipe showcase
       return <Showcase recipeData={activeRecipe}/> 
   }else if (pageState === 3){
     //add page
-    return <Create />
+    return <Create setPage={setPageState}/>
   }
 }
 
