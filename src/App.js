@@ -30,7 +30,7 @@ function renderPage(){
     return <Recipes addRecipe={setPageState} view={viewRecipe}/> ;
   }else if (pageState === 2){
       //recipe showcase
-      return <Showcase recipeData={activeRecipe}/> 
+      return <Showcase setPage={setPageState} recipeData={activeRecipe}/> 
   }else if (pageState === 3){
     //add page
     return <Create setPage={setPageState}/>
