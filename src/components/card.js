@@ -4,10 +4,8 @@ import edit from "./SVG/edit.svg";
 import hat from "./SVG/chef-hat.svg"
 
 function Card(props){
-    console.log(props.recipeData);
 
     function onDelete(){
-        //CONTINUE HERE,
         props.delete(props.recipeData.id);
     }
 
@@ -16,7 +14,7 @@ function Card(props){
             <img className="svg" src={chef} alt="Picture of food" />
             <p>{props.recipeData.name}</p>
             <button><img onClick={onDelete} className="button-svg" src={trash} /></button>
-            <button><img className="button-svg" src={edit}/></button>
+            <button><img onClick={() =>{props.edit(props.recipeData)}} className="button-svg" src={edit}/></button>
             <button><img onClick={ () =>{props.view(props.recipeData)}} className="button-svg" src={hat} alt="view"/></button>
         </div>
     )       

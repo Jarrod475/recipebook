@@ -35,7 +35,7 @@ function List(props){
         <div className="recipelist">
             {recipeList.length > 0 ? recipeList.map((recipe, index)=>
             {
-                return <Card delete={deleteData} view={props.view} key={index} recipeData={recipe} />
+                return <Card edit={props.edit} delete={deleteData} view={props.view} key={index} recipeData={recipe} />
             }): <p>No recipes :/</p>}
             <button className="create-btn" onClick={()=>props.addRecipe(3)}>
                 <img className="button-svg" src={chefSVG} alt="add button" />
