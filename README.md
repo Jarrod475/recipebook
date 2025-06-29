@@ -1,5 +1,26 @@
-### Goals for the project
+# RecipeBook - client
 
-1. get to grips with Oauth...
-2. Get some practice with relational databases!
-3. KEEP YOUR RECIPES SAFE!
+RecipeBook is a simple application for managing and organizing your favorite recipes. It allows users to add, edit, and view recipes, making it easy to keep track of ingredients and instructions.
+
+## Features
+
+- Add, edit, and delete recipes
+- Store ingredients and step-by-step instructions
+
+## Getting Started
+
+1. Clone the repository.
+2. Install dependencies.
+3. Run the application.
+
+## What I learned
+
+- How to use Oauth.
+- Verifying user logins.
+- sending and recieving info front client to server.
+- Setting up a Google Oauth account and accessing the Google API.
+- Using PGAdmin to create and edit databases.
+
+## License
+
+This project is licensed under the MIT License.
