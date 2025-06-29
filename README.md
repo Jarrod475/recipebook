@@ -1,4 +1,4 @@
-# RecipeBook - client
+# RecipeBook - Client
 
 RecipeBook is a simple application for managing and organizing your favorite recipes. It allows users to add, edit, and view recipes, making it easy to keep track of ingredients and instructions.
 
@@ -15,11 +15,10 @@ RecipeBook is a simple application for managing and organizing your favorite rec
 
 ## What I learned
 
-- How to use Oauth.
+- How to use basic Oauth.
 - Verifying user logins.
-- sending and recieving info front client to server.
+- sending and recieving info from client to server.
 - Setting up a Google Oauth account and accessing the Google API.
-- Using PGAdmin to create and edit databases.
 
 ## License
 
